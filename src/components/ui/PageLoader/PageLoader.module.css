@@ -1,0 +1,61 @@
+/* ============================================
+   PROSTRUCTURE ENGINEERING LTD
+   src/components/ui/PageLoader/PageLoader.module.css
+   ============================================ */
+
+.wrapper {
+  position: fixed;
+  inset: 0;
+  background-color: var(--color-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-modal);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.logoMark {
+  width: 52px;
+  height: 52px;
+  color: var(--color-gold);
+  animation: pulse 1.6s ease-in-out infinite;
+}
+
+.logoMark svg {
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1;   transform: scale(1);    }
+  50%       { opacity: 0.6; transform: scale(0.96); }
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  color: var(--color-white);
+  margin-top: var(--space-xs);
+}
+
+.bar {
+  width: 0;
+  height: 2px;
+  background-color: var(--color-gold);
+  border-radius: 2px;
+  animation: load 1.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes load {
+  0%   { width: 0;    opacity: 1; }
+  65%  { width: 52px; opacity: 1; }
+  100% { width: 52px; opacity: 0; }
+}

@@ -1,0 +1,287 @@
+/* ============================================
+   PROSTRUCTURE ENGINEERING LTD
+   src/sections/About/About.module.css
+   ============================================ */
+
+/* ── Section wrapper ──────────────────────── */
+.about {
+  position: relative;
+  background-color: var(--color-white);
+  padding-top: var(--section-py);
+  padding-bottom: var(--section-py);
+  overflow: hidden;
+}
+
+/* ── Inner two-column grid ────────────────── */
+.inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3xl);
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Text column ──────────────────────────── */
+.textCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-md);
+}
+
+/* ── Headline ─────────────────────────────── */
+.headline {
+  color: var(--color-black);
+  font-size: clamp(1.8rem, 3vw, var(--text-4xl));
+  max-width: 520px;
+}
+
+/* ── Gold rule under headline ─────────────── */
+.rule {
+  width: 56px;
+  height: 3px;
+  background: linear-gradient(to right, var(--color-gold), var(--color-gold-light));
+  border-radius: 2px;
+  margin-top: calc(var(--space-xs) * -1);
+}
+
+/* ── Story paragraphs ─────────────────────── */
+.story {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.para {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: #444444;
+  line-height: 1.8;
+}
+
+/* ── Highlight pills ──────────────────────── */
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-xs);
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 0.45rem 1rem;
+  background-color: var(--color-gray-light);
+  border: 1px solid var(--color-gray-mid);
+  border-radius: 9999px;
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-black);
+}
+
+.pillDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--color-gold);
+  flex-shrink: 0;
+}
+
+/* ── CTA button ───────────────────────────── */
+.cta {
+  margin-top: var(--space-sm);
+}
+
+/* ── Image wrapper ────────────────────────── */
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* ── Image placeholder (until real photo added) ── */
+.imagePlaceholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(145deg, #1a1a1a 0%, #0f0f0f 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+
+.placeholderIcon {
+  width: 80px;
+  height: 80px;
+  color: var(--color-gold);
+}
+
+.placeholderText {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.placeholderHint {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: rgba(255, 255, 255, 0.35);
+  text-align: center;
+  padding: 0 var(--space-md);
+}
+
+/* ── Gold corner accents on image ─────────── */
+.imageCornerTL,
+.imageCornerBR {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  pointer-events: none;
+}
+
+.imageCornerTL {
+  top: -2px;
+  left: -2px;
+  border-top: 3px solid var(--color-gold);
+  border-left: 3px solid var(--color-gold);
+  border-radius: var(--radius-md) 0 0 0;
+}
+
+.imageCornerBR {
+  bottom: -2px;
+  right: -2px;
+  border-bottom: 3px solid var(--color-gold);
+  border-right: 3px solid var(--color-gold);
+  border-radius: 0 0 var(--radius-md) 0;
+}
+
+/* ── Background decorations ───────────────── */
+.decorations {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.deco {
+  position: absolute;
+  color: var(--color-gold);
+  opacity: 0.12;
+}
+
+/* Individual decoration positions & sizes */
+.decoTopLeft {
+  top: 4%;
+  left: 2%;
+  width: 80px;
+  height: 80px;
+  transform: rotate(-15deg);
+}
+
+.decoTopRight {
+  top: 6%;
+  right: 4%;
+  width: 70px;
+  height: 70px;
+  transform: rotate(10deg);
+}
+
+.decoTopCenter {
+  top: 3%;
+  left: 48%;
+  width: 60px;
+  height: 60px;
+  transform: rotate(20deg);
+}
+
+.decoMidLeft {
+  top: 42%;
+  left: 1%;
+  width: 90px;
+  height: 90px;
+  transform: rotate(25deg);
+}
+
+.decoMidRight {
+  top: 38%;
+  right: 2%;
+  width: 88px;
+  height: 88px;
+  transform: rotate(-10deg);
+}
+
+.decoCenterRight {
+  top: 55%;
+  right: 8%;
+  width: 100px;
+  height: 100px;
+  transform: rotate(5deg);
+}
+
+.decoBottomLeft {
+  bottom: 5%;
+  left: 5%;
+  width: 72px;
+  height: 72px;
+  transform: rotate(-20deg);
+}
+
+.decoBottomRight {
+  bottom: 4%;
+  right: 3%;
+  width: 96px;
+  height: 96px;
+  transform: rotate(8deg);
+}
+
+/* ── Responsive ───────────────────────────── */
+@media (max-width: 900px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+
+  .imageWrapper {
+    aspect-ratio: 16 / 9;
+    max-height: 400px;
+  }
+
+  .headline {
+    font-size: clamp(1.6rem, 5vw, 2.4rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .pills {
+    gap: var(--space-xs);
+  }
+
+  .pill {
+    font-size: var(--text-xs);
+    padding: 0.35rem 0.75rem;
+  }
+
+  .deco {
+    opacity: 0.07;
+  }
+}

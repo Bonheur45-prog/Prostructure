@@ -1,0 +1,20 @@
+/* ============================================
+   PROSTRUCTURE ENGINEERING LTD
+   src/components/layout/Layout.module.css
+   ============================================ */
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: var(--color-white);
+}
+
+/* Hero section is full-viewport and sits under transparent navbar.
+   All other content flows naturally below the hero. */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
