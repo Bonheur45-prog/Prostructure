@@ -1,0 +1,328 @@
+/* ============================================
+   PROSTRUCTURE ENGINEERING LTD
+   src/sections/Services/Services.module.css
+   Adapted 1:1 from reference WhyChooseUs.module.css
+   LEFT = sticky media card | RIGHT = services list
+   ============================================ */
+
+/* ── Section wrapper ──────────────────────── */
+/* overflow must be VISIBLE here so position:sticky
+   on .mediaCol works. Clipping of parallax bg is
+   handled by .parallaxClip instead */
+.section {
+  position: relative;
+  background-color: var(--color-black);
+}
+
+/* ── Parallax clip wrapper ────────────────── */
+/* overflow:hidden moved here (off .section) so
+   sticky is not broken. position:absolute/inset:0
+   sits behind everything and clips the oversized
+   parallaxBg without affecting stacking context */
+.parallaxClip {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* ── Parallax background layer ────────────── */
+/* Slightly taller than 100% so travel never
+   reveals a gap at top or bottom */
+.parallaxBg {
+  position: absolute;
+  top: -15%;
+  left: 0;
+  width: 100%;
+  height: 130%;
+  background-color: var(--color-black-light);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+/* ── Gradient overlay ─────────────────────── */
+/* Lighter on LEFT (behind media card) —
+   darker on RIGHT (behind services list) —
+   opposite of reference because columns are flipped */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.72)  0%,
+    rgba(0, 0, 0, 0.82) 45%,
+    rgba(0, 0, 0, 0.88) 55%,
+    rgba(0, 0, 0, 0.92) 100%
+  );
+  z-index: 1;
+}
+
+/* ── Inner two-column layout ──────────────── */
+/* align-items:start is REQUIRED for position:sticky
+   to work on children. The default (stretch) makes
+   mediaCol fill the full grid height which means it
+   never needs to stick — it's already as tall as grid */
+.inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  min-height: 680px;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* ── LEFT COLUMN — sticky media card ─────── */
+/* position:sticky keeps the card pinned to the
+   viewport as the right content scrolls past.
+   top:80px gives breathing room from nav.
+   Unsticks naturally when right column bottom
+   reaches the bottom of the sticky card */
+.mediaCol {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 48px 24px 48px 48px;
+  position: sticky;
+  top: 80px;
+  align-self: start;
+}
+
+/* ── Media card ───────────────────────────── */
+/* Fixed height so the card has a defined size
+   when sticky. aspect-ratio alone won't work
+   since width is percentage-based */
+.mediaCard {
+  width: 100%;
+  height: 500px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  position: relative;
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
+}
+
+.mediaAsset {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.mediaVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* ── Placeholder card ─────────────────────── */
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+}
+
+.placeholderIcon {
+  width: 52px;
+  height: 52px;
+  color: rgba(255, 255, 255, 0.15);
+}
+
+.placeholderLabel {
+  font-family: var(--font-body);
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.22);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-align: center;
+  max-width: 180px;
+  line-height: 1.6;
+}
+
+/* ── RIGHT COLUMN — services content ─────── */
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 96px 64px 96px 56px;
+}
+
+/* ── Eyebrow ──────────────────────────────── */
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 14px;
+}
+
+/* ── Heading ──────────────────────────────── */
+.heading {
+  font-family: var(--font-display);
+  font-size: clamp(30px, 3.2vw, 44px);
+  font-weight: 900;
+  color: var(--color-white);
+  line-height: 1.15;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin: 0 0 12px;
+}
+
+/* ── Subtext ──────────────────────────────── */
+.subtext {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.7;
+  margin: 0 0 40px;
+  max-width: 420px;
+}
+
+/* ── Reasons / services list ──────────────── */
+.reasons {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* ── Single service row ───────────────────── */
+.reason {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+/* ── Circle-draw icon ─────────────────────── */
+.iconWrap {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  margin-top: 2px;
+}
+
+.iconCircle {
+  width: 32px;
+  height: 32px;
+  --circumference: 88; /* 2π × r14 ≈ 87.96 */
+}
+
+/* Circle stroke draws from 0 → full when .animated */
+.circlePath {
+  stroke: var(--color-gold);
+  stroke-width: 1.5;
+  fill: none;
+  stroke-dasharray: var(--circumference);
+  stroke-dashoffset: var(--circumference);
+  stroke-linecap: round;
+  transform-origin: center;
+  transform: rotate(-90deg);
+  transition: stroke-dashoffset 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Checkmark draws after circle completes (0.5s delay) */
+.checkPath {
+  stroke: var(--color-gold);
+  stroke-width: 1.8;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 20;
+  stroke-dashoffset: 20;
+  transition: stroke-dashoffset 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.5s;
+}
+
+.reason.animated .circlePath { stroke-dashoffset: 0; }
+.reason.animated .checkPath  { stroke-dashoffset: 0; }
+
+/* ── Service text ─────────────────────────── */
+.reasonText {
+  flex: 1;
+}
+
+.reasonTitle {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-white);
+  margin: 0 0 4px;
+  line-height: 1.3;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.reasonDesc {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.52);
+  line-height: 1.6;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ── Responsive ───────────────────────────── */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .inner {
+    min-height: 560px;
+  }
+
+  .content {
+    padding: 72px 40px 72px 32px;
+  }
+
+  .mediaCol {
+    padding: 40px 16px 40px 32px;
+    top: 60px;
+  }
+
+  .mediaCard {
+    height: 420px;
+  }
+}
+
+/* Mobile: single column, media hidden */
+@media (max-width: 768px) {
+  .overlay {
+    background: rgba(0, 0, 0, 0.90);
+  }
+
+  .inner {
+    grid-template-columns: 1fr;
+    min-height: unset;
+    /* Restore stretch alignment for single-column layout */
+    align-items: stretch;
+  }
+
+  .content {
+    padding: 72px 24px 80px;
+  }
+
+  .subtext {
+    max-width: 100%;
+  }
+
+  /* Hide media column entirely on mobile — disable sticky */
+  .mediaCol {
+    display: none;
+    position: static;
+  }
+}

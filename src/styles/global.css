@@ -22,7 +22,11 @@ body {
   background-color: var(--color-white);
   color: var(--color-black);
   line-height: 1.6;
-  overflow-x: hidden;
+  /* overflow-x:hidden creates a scroll container and breaks
+     position:sticky on ALL descendants sitewide.
+     overflow-x:clip achieves identical visual clipping without
+     creating a scroll container — sticky works correctly */
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
 }
 

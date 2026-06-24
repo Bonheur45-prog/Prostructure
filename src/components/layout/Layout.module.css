@@ -7,7 +7,10 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  overflow-x: hidden;
+  /* overflow-x:hidden breaks position:sticky on ALL descendants.
+     overflow:clip achieves the same visual clipping without
+     creating a scroll container — sticky works correctly */
+  overflow-x: clip;
   background-color: var(--color-white);
 }
 

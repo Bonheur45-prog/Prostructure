@@ -2,12 +2,18 @@
 // PROSTRUCTURE ENGINEERING LTD
 // src/hooks/useInView.js
 // Returns [ref, inView] — fires once when element enters viewport
-// Ideal for count-up animations and scroll-triggered reveals
+// Accepts either a number (threshold) or an options object {threshold}
 // ============================================
 
 import { useRef, useState, useEffect } from 'react'
 
-export function useInView(threshold = 0.3) {
+export function useInView(thresholdOrOptions = 0.3) {
+  // Accept both useInView(0.4) and useInView({ threshold: 0.4 })
+  const threshold =
+    typeof thresholdOrOptions === 'number'
+      ? thresholdOrOptions
+      : thresholdOrOptions?.threshold ?? 0.3
+
   const ref    = useRef(null)
   const [inView, setInView] = useState(false)
 

@@ -9,12 +9,11 @@ import Layout from './components/layout/Layout'
 import PageLoader from './components/ui/PageLoader/PageLoader'
 import Hero         from '@sections/Hero/Hero'
 import About        from '@sections/About/About'
+import Services     from '@sections/Services/Services'
 
 
 // Sections imported below as we build them:
 // import TrustBar     from '@sections/TrustBar/TrustBar'
-
-// import Services     from '@sections/Services/Services'
 // import Projects     from '@sections/Projects/Projects'
 // import Process      from '@sections/Process/Process'
 // import WhyUs        from '@sections/WhyUs/WhyUs'
@@ -37,6 +36,7 @@ export default function App() {
     <Layout>
       <Hero />
       <About />
+      <Services />
       {/* Sections added here as we build them */}
     </Layout>
   )
