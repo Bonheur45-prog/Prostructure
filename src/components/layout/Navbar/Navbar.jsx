@@ -89,7 +89,7 @@ export default function Navbar() {
             className={styles.cta}
             onClick={() => handleNavClick('#contact')}
           >
-            Get a Quote
+            Get Started
           </a>
 
           {/* ── Hamburger (mobile only) ──────── */}

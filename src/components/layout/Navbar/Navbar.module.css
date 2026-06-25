@@ -229,6 +229,7 @@
 
   .hamburger {
     display: flex;
+    grid-column: 3;
   }
 }
 
