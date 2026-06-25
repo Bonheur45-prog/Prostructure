@@ -8,6 +8,7 @@
 
 import { useState, useEffect } from 'react'
 import { AnimatePresence } from 'framer-motion'
+import { useLocation } from 'react-router-dom'
 import { useScrolled } from '@hooks/useScrolled'
 import navLinks from '@data/navLinks'
 import logo from '@assets/images/logo.png'
@@ -18,6 +19,8 @@ export default function Navbar() {
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [activeLink, setActiveLink] = useState('#home')
   const scrolled = useScrolled(60)
+  const location = useLocation()
+  const isHome = location.pathname === '/'
 
   // ── Active section via IntersectionObserver ──
   useEffect(() => {
@@ -47,7 +50,7 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`${styles.navbar} ${scrolled ? styles.solid : styles.clear}`}
+        className={`${styles.navbar} ${isHome && !scrolled ? styles.clear : styles.solid}`}
         role="navigation"
         aria-label="Main navigation"
       >
