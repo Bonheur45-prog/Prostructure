@@ -89,7 +89,7 @@
 }
 
 .logoImg {
-  height: 44px;
+  height: 74px;
   width: auto;
   object-fit: contain;
   display: block;
@@ -209,8 +209,8 @@
 
 .bar {
   display: block;
-  width: 24px;
-  height: 2px;
+  width: 26px;
+  height: 3px;
   background-color: var(--color-white);
   border-radius: 2px;
   transition: background-color var(--transition-fast);
@@ -235,6 +235,6 @@
 
 @media (max-width: 480px) {
   .logoImg {
-    height: 36px;
+    height: 66px;
   }
 }
