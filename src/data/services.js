@@ -3,6 +3,7 @@
 // src/data/services.js
 // Services section content
 // ============================================
+import servicesImage from '@assets/images/services-media.jpg'
 
 export const servicesContent = {
   sectionLabel: 'What We Do',
@@ -14,7 +15,7 @@ export const servicesContent = {
 // type: 'image' | 'video'
 export const servicesMedia = {
   type:   'image',
-  src:    null,           // ← Replace: src/assets/images/services-media.jpg
+  src:    servicesImage,           // ← Replace: 
   poster: null,           // ← For video: poster/thumbnail image path
   alt:    'Prostructure Engineering Ltd construction and engineering services in Rwanda',
 }

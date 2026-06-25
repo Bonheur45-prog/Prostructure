@@ -1,15 +1,24 @@
 // ============================================
 // PROSTRUCTURE ENGINEERING LTD
-// src/data/projects.js
-// Project portfolio — 9 placeholder projects
-// Replace image paths and content with real data
+// src/data/projects.js — use imports for images so Vite bundles them
 // ============================================
+
+import projectsBg from '@assets/images/projects/projects-bg.jpg'
+import proj001 from '@assets/images/projects/proj-001.jpg'
+import proj002 from '@assets/images/projects/proj-002.jpg'
+import proj003 from '@assets/images/projects/proj-003.jpg'
+import proj004 from '@assets/images/projects/proj-004.jpg'
+import proj005 from '@assets/images/projects/proj-005.jpg'
+import proj006 from '@assets/images/projects/proj-006.jpg'
+import proj007 from '@assets/images/projects/proj-007.jpg'
+import proj008 from '@assets/images/projects/proj-008.jpg'
+import proj009 from '@assets/images/projects/proj-009.jpg'
 
 export const projectsContent = {
   sectionLabel: 'Our Work',
   headline:     'Projects That Speak for Themselves',
   subtext:      'Every project we deliver is a testament to our commitment to quality, precision and professionalism across Rwanda.',
-  background:   "src/assets/images/projects/projects-bg.jpg", // ← Replace: 
+  background:   projectsBg,
 }
 
 export const projects = [
@@ -24,8 +33,8 @@ export const projects = [
     year:        '2023',
     client:      'Private Developer',
     duration:    '18 Months',
-    image:       "src/assets/images/projects/proj-001.jpg", // ← Replace: 
-    gallery:     ["src/assets/images/projects/proj-007.jpg", "src/assets/images/projects/proj-008.jpg", "src/assets/images/projects/proj-009.jpg", "src/assets/images/projects/proj-001.jpg"],
+    image:       proj001,
+    gallery:     [proj007, proj008, proj009, proj001],
     overview:    'This landmark commercial project in the heart of Kigali represents the pinnacle of our construction capabilities. The complex features four floors of premium commercial space, underground parking, and state-of-the-art building systems throughout.',
     services:    ['Structural Engineering', 'Construction Management', 'Electrical Installation', 'Plumbing'],
     specs: [
@@ -46,8 +55,8 @@ export const projects = [
     year:        '2023',
     client:      'Private Homeowner',
     duration:    '3 Months',
-    image:       "src/assets/images/projects/proj-002.jpg", // ← Replace: 
-    gallery:     ["src/assets/images/projects/proj-002.jpg", "src/assets/images/projects/proj-002.jpg", "src/assets/images/projects/proj-002.jpg"],
+    image:       proj002,
+    gallery:     [proj002, proj002, proj002],
     overview:    'A full waterproofing intervention across a residential estate including basement waterproofing, roof membrane installation, and humidity control systems for all 24 residential units.',
     services:    ['Waterproofing', 'Humidity Solutions', 'Surface Treatment'],
     specs: [
@@ -68,8 +77,8 @@ export const projects = [
     year:        '2022',
     client:      'Private Medical Facility',
     duration:    '6 Months',
-    image:       "src/assets/images/projects/proj-003.jpg", // ← Replace: 
-    gallery:     ["src/assets/images/projects/proj-006.jpg", "src/assets/images/projects/proj-009.jpg", "src/assets/images/projects/proj-003.jpg"],
+    image:       proj003,
+    gallery:     [proj006, proj009, proj003],
     overview:    'A complex plumbing installation for a modern hospital facility requiring strict compliance with medical facility standards, including potable water systems, medical gas infrastructure and advanced drainage.',
     services:    ['Plumbing', 'Medical Gas Installation', 'Drainage Systems'],
     specs: [
@@ -90,8 +99,8 @@ export const projects = [
     year:        '2023',
     client:      'Corporate Client',
     duration:    '4 Months',
-    image:       "src/assets/images/projects/proj-004.jpg",
-    gallery:     ["src/assets/images/projects/proj-007.jpg", "src/assets/images/projects/proj-005.jpg", "src/assets/images/projects/proj-001.jpg"],
+    image:       proj004,
+    gallery:     [proj007, proj005, proj001],
     overview:    'Full electrical works for a modern office block serving multiple corporate tenants. Scope included MV/LV distribution, intelligent lighting control, emergency systems and a 500KVA backup generator installation.',
     services:    ['Electrical Installation', 'Lighting Design', 'Generator Installation'],
     specs: [
@@ -112,8 +121,8 @@ export const projects = [
     year:        '2022',
     client:      'Educational Institution',
     duration:    '14 Months',
-    image:       "src/assets/images/projects/proj-005.jpg", // ← Replace: 
-    gallery:     ["src/assets/images/projects/proj-005.jpg", "src/assets/images/projects/proj-002.jpg", "src/assets/images/projects/proj-008.jpg", "src/assets/images/projects/proj-009.jpg"],
+    image:       proj005,
+    gallery:     [proj005, proj002, proj008, proj009],
     overview:    'A complete school campus built from the ground up in Musanze. The project delivered 18 modern classrooms, 4 science laboratories, a library, administration block and outdoor sports area.',
     services:    ['Construction', 'Electrical Installation', 'Plumbing', 'Finishes'],
     specs: [
@@ -134,8 +143,8 @@ export const projects = [
     year:        '2023',
     client:      'Commercial Property Owner',
     duration:    'Ongoing',
-    image:       "src/assets/images/projects/proj-006.jpg", // ← Replace: 
-    gallery:     ["src/assets/images/projects/proj-001.jpg", "src/assets/images/projects/proj-004.jpg", "src/assets/images/projects/proj-009.jpg"],
+    image:       proj006,
+    gallery:     [proj001, proj004, proj009],
     overview:    'A comprehensive scheduled maintenance programme covering a 12-unit commercial facility park including monthly electrical inspections, plumbing maintenance, structural repairs and 4-hour emergency response.',
     services:    ['Electrical Maintenance', 'Plumbing Maintenance', 'Structural Repairs'],
     specs: [
@@ -156,8 +165,8 @@ export const projects = [
     year:        '2024',
     client:      'Logistics Company',
     duration:    '10 Months',
-    image:       "src/assets/images/projects/proj-007.jpg", // ← Replace: 
-    gallery:     ["src/assets/images/projects/proj-005.jpg", "src/assets/images/projects/proj-002.jpg", "src/assets/images/projects/proj-008.jpg"],
+    image:       proj007,
+    gallery:     [proj005, proj002, proj008],
     overview:    'A purpose-built logistics warehouse designed for heavy industrial use featuring 8-metre clear span roof, reinforced concrete flooring, 4 loading bays and full electrical installation.',
     services:    ['Construction', 'Structural Engineering', 'Electrical Installation'],
     specs: [
@@ -178,8 +187,8 @@ export const projects = [
     year:        '2024',
     client:      'Hospitality Group',
     duration:    '8 Months',
-    image:       "src/assets/images/projects/proj-008.jpg", // ← Replace: 
-    gallery:     ["src/assets/images/projects/proj-007.jpg", "src/assets/images/projects/proj-005.jpg", "src/assets/images/projects/proj-001.jpg"],
+    image:       proj008,
+    gallery:     [proj007, proj005, proj001],
     overview:    'Comprehensive plumbing and waterproofing for a premium lakeside hotel including 60-room plumbing, pool circulation systems, spa facilities, kitchen plumbing and full building waterproofing.',
     services:    ['Plumbing', 'Waterproofing', 'Pool Systems', 'Humidity Solutions'],
     specs: [
@@ -200,8 +209,8 @@ export const projects = [
     year:        '2024',
     client:      'Real Estate Developer',
     duration:    '5 Months',
-    image:       "src/assets/images/projects/proj-009.jpg", // ← Replace: 
-    gallery:     ["src/assets/images/projects/proj-006.jpg", "src/assets/images/projects/proj-003.jpg", "src/assets/images/projects/proj-004.jpg"],
+    image:       proj009,
+    gallery:     [proj006, proj003, proj004],
     overview:    'Premium electrical works for a luxury apartment development featuring smart lighting, climate control per unit, building-wide solar PV integration, EV charging points and a centralised building management system.',
     services:    ['Electrical Installation', 'Smart Home Systems', 'Solar Integration'],
     specs: [

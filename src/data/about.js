@@ -3,6 +3,7 @@
 // src/data/about.js
 // About section content
 // ============================================
+import aboutImage from '@assets/images/about.jpg'
 
 const about = {
   sectionLabel: 'Who We Are',
@@ -23,7 +24,7 @@ const about = {
 
   // Replace with real team or site photo once available
   // e.g. '/src/assets/images/about.jpg'
-  image:    null,
+  image:    aboutImage,
   imageAlt: 'Prostructure Engineering team at work on a construction site in Kigali, Rwanda',
 
   cta: {
