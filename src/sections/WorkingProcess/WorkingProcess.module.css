@@ -1,10 +1,10 @@
 /* ============================================
    PROSTRUCTURE ENGINEERING LTD
    src/sections/WorkingProcess/WorkingProcess.module.css
-   Orbital layout with pulse & rotating rings
+   SVG-based orbital layout
    ============================================ */
 
-/* ── Section ────────────────────────────────── */
+/* ── Section ─────────────────────────────────── */
 .section {
   position: relative;
   background-color: var(--color-black);
@@ -26,7 +26,11 @@
   width: 100%;
   height: 130%;
   background-color: var(--color-black-light);
-  background-image: radial-gradient(circle at 50% 40%, rgba(201, 168, 76, 0.06) 0%, transparent 70%);
+  background-image: radial-gradient(
+    circle at 50% 40%,
+    rgba(201, 168, 76, 0.06) 0%,
+    transparent 70%
+  );
   z-index: 0;
 }
 .overlay {
@@ -45,7 +49,7 @@
   padding: 0 24px;
 }
 
-/* ── Header ──────────────────────────────────── */
+/* ── Header ─────────────────────────────────── */
 .header {
   text-align: center;
   margin-bottom: 40px;
@@ -79,213 +83,138 @@
 }
 
 /* ── Orbit Container ────────────────────────── */
+/*
+  The SVG uses viewBox="0 0 600 600" + width="100%".
+  We constrain the container width — SVG scales itself proportionally.
+  No scale() tricks. No breakpoint ring resizing. One source of truth.
+*/
 .orbitContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  min-height: 580px;
 }
 
-.orbitWrapper {
-  position: relative;
-  width: 600px;
-  height: 600px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* ── RINGS ───────────────────────────────────── */
-
-/* Ring 3 – Outer dashed (rotating) */
-/* 540px → radius 270. Node circles sit at radius 220 ± 28px (outer edge 248).
-   Gap from dashed inner edge to node outer edge = 270 - 248 = 22px — clearly outside. */
-.ringDashed {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 540px;
-  height: 540px;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  border: 2px dashed rgba(201, 168, 76, 0.25);
-  pointer-events: none;
-  animation: spin 50s linear infinite;
-}
-
-@keyframes spin {
-  0%   { transform: translate(-50%, -50%) rotate(0deg); }
-  100% { transform: translate(-50%, -50%) rotate(360deg); }
-}
-
-/* Ring 2 – Middle solid (static, holds nodes) */
-.ringStatic {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 440px;
-  height: 440px;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  border: 1.5px solid rgba(201, 168, 76, 0.25);
-  pointer-events: none;
-}
-
-/* Ring 1 – Inner pulsing heartbeat */
-.ringPulse {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 180px;
-  height: 180px;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  border: 2px solid var(--color-gold);
-  pointer-events: none;
-  animation: pulse 3s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%   { transform: translate(-50%, -50%) scale(1);    opacity: 0.6; }
-  50%  { transform: translate(-50%, -50%) scale(1.15); opacity: 0; }
-  100% { transform: translate(-50%, -50%) scale(1);    opacity: 0.6; }
-}
-
-/* ── Central Hub ────────────────────────────── */
-/* hub = 120px, ringPulse = 180px → 30px gap each side. Hub always inside pulse ring. */
-.hub {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
-  border: 2px solid var(--color-gold);
-  box-shadow: 0 0 60px rgba(201, 168, 76, 0.15), inset 0 0 40px rgba(201, 168, 76, 0.05);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  z-index: 10;
-  padding: 12px;
-}
-
-.hubLogo {
-  width: 40px;
-  height: auto;
+.orbitSvg {
+  width: 100%;
+  max-width: 600px;   /* desktop cap */
+  height: auto;       /* preserves viewBox aspect ratio automatically */
+  overflow: visible;  /* allow foreignObject content to render outside SVG bounds if needed */
   display: block;
-  margin-bottom: 4px;
-  filter: brightness(0) invert(1);
+  margin: 0 auto;
 }
 
+/* ── Dashed ring — CSS animation for rotation ── */
+/*
+  SVG circles can't be animated with CSS transform-origin correctly in all browsers
+  when using transform: rotate() directly on the element.
+  We use animateTransform in SVG instead — see JSX.
+  The class is kept here for the dashed stroke style only.
+*/
+.ringDashed {
+  animation: spinRing 50s linear infinite;
+  transform-origin: 300px 300px; /* SVG centre */
+}
+
+@keyframes spinRing {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ── Pulse ring ─────────────────────────────── */
+.ringPulse {
+  transform-origin: 300px 300px;
+  animation: pulseRing 3s ease-in-out infinite;
+}
+
+@keyframes pulseRing {
+  0%   { transform: scale(1);    opacity: 0.6; }
+  50%  { transform: scale(1.18); opacity: 0; }
+  100% { transform: scale(1);    opacity: 0.6; }
+}
+
+/* ── Hub label (SVG text) ───────────────────── */
 .hubLabel {
   font-family: var(--font-body);
   font-size: 9px;
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.8);
+  fill: rgba(255, 255, 255, 0.85);
   letter-spacing: 1.2px;
   text-transform: uppercase;
-  line-height: 1.3;
 }
 
-/* ── Orbiting Nodes ──────────────────────────── */
-.node {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* ── Node group hover ───────────────────────── */
+.nodeGroup {
   cursor: default;
-  width: 80px;
-  /* transform is set inline: translate(-50%, -28px)
-     X: centres div horizontally on ring point
-     Y: shifts up by half nodeCircle height (56/2=28px) so the circle — not the div — sits on the ring */
 }
 
+.nodeGroup:hover .nodeCircle {
+  /* SVG doesn't support :hover on child selectors via CSS the same way.
+     We handle hover via inline SVG filter / JS if needed.
+     The foreignObject icon colour change is handled via JS className toggle. */
+}
+
+/* Hover: make node border bold + scale icon circle and icon */
 .nodeCircle {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  border: 2px solid rgba(201, 168, 76, 0.5);
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
+  transition: transform 220ms ease, stroke 220ms ease, stroke-width 220ms ease, filter 220ms ease;
+  transform-box: fill-box;
+  transform-origin: center;
 }
 
-.node:hover .nodeCircle {
-  border-color: var(--color-gold);
-  background: rgba(201, 168, 76, 0.12);
-  box-shadow: 0 0 30px rgba(201, 168, 76, 0.2);
-  transform: scale(1.08);
+.nodeIconWrapper {
+  transition: transform 220ms ease;
+  transform-box: fill-box;
+  transform-origin: center;
+  pointer-events: none;
 }
 
-.nodeIcon {
-  width: 24px;
-  height: 24px;
-  stroke: var(--color-gold);
-  stroke-width: 1.8;
-  transition: stroke 0.3s ease;
-}
-
-.node:hover .nodeIcon {
+.nodeGroup:hover .nodeCircle {
   stroke: #ffffff;
+  stroke-width: 3;
+  transform: scale(1.12);
 }
 
+.nodeGroup:hover .nodeIconWrapper {
+  transform: scale(1.12);
+}
+
+/* ── Node title (SVG text) ──────────────────── */
 .nodeTitle {
-  margin-top: 8px;
   font-family: var(--font-body);
-  font-size: 11px;
-  font-weight: 600;
+  font-size: 10px;
+  font-weight: 700;
+  fill: rgba(255, 255, 255, 0.65);
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: rgba(255, 255, 255, 0.65);
-  line-height: 1.3;
-  text-align: center;
-  transition: color 0.3s ease;
+  text-anchor: middle;
+  transition: fill 0.3s ease;
 }
 
-.node:hover .nodeTitle {
-  color: #ffffff;
+.nodeGroup:hover .nodeTitle {
+  fill: rgba(255, 255, 255, 1);
 }
 
-/* ── Responsive ──────────────────────────────── */
-
+/* ── Responsive ─────────────────────────────── */
 /*
-  IMPORTANT: We never change ringStatic's pixel size in any breakpoint.
-  ringStatic is always 440px (radius 220px), matching the JS node radius exactly.
-  Scaling is done via transform: scale() on .orbitWrapper so every internal
-  measurement — rings, hub, and JS-calculated node positions — shrinks uniformly.
+  SVG scales automatically via viewBox + width: 100% + max-width.
+  All we need to do is change max-width at breakpoints.
+  Rings, nodes, hub, text — everything scales together as one unit.
 */
 
-/* Tablet – scale the full 600px wrapper down to ~500px visual size */
 @media (max-width: 1024px) {
-  .orbitContainer {
-    min-height: 500px;
-  }
-  .orbitWrapper {
-    /* Keep intrinsic size at 600px so JS radius (220px) stays correct.
-       Scale visually to ~500px: 500 / 600 = 0.833 */
-    transform: scale(0.833);
-    transform-origin: center center;
+  .orbitSvg {
+    max-width: 480px;
   }
 }
 
-/* Mobile – scale the full 600px wrapper down to ~340px visual size */
 @media (max-width: 768px) {
-  .orbitContainer {
-    min-height: 380px;
+  .orbitSvg {
+    max-width: 340px;
   }
-  .orbitWrapper {
-    /* Scale visually to ~340px: 340 / 600 = 0.567 */
-    transform: scale(0.567);
-    transform-origin: center center;
+}
+
+@media (max-width: 400px) {
+  .orbitSvg {
+    max-width: 300px;
   }
 }
