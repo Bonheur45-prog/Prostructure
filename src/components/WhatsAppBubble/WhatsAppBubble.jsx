@@ -18,7 +18,7 @@ import styles from './WhatsAppBubble.module.css'
 // ── Config — update placeholders ─────────────────────
 const WHATSAPP_NUMBER  = '250795263269'   // ← no + or spaces, just digits
 const WHATSAPP_MESSAGE = 'Hello Prostructure, I would like to discuss a project.'
-const TOOLTIP_TEXT     = 'Chat with us on WhatsApp'
+const TOOLTIP_TEXT    = 'Chat with us on WhatsApp'
 
 // ── WhatsApp SVG icon ────────────────────────────────
 function WhatsAppIcon({ size = 28 }) {
