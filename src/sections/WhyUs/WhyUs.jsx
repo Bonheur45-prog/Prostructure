@@ -9,7 +9,7 @@
 import { motion } from 'framer-motion'
 import { Users, Award, BadgeCheck, Clock } from 'lucide-react'
 import { useInView } from '@hooks/useInView'
-import { reasons, whyUsContent } from '@data/whyUs'
+import { reasons, whyUsContent } from '@data/WhyUs'
 import styles from './WhyUs.module.css'
 
 // ── Icon map ──────────────────────────────────────────────────
