@@ -5,10 +5,10 @@
 // ============================================
 
 const contact = {
-  phone:     '+250 XXX XXX XXX',           // ← Replace with real number
-  whatsapp:  '250XXXXXXXXX',               // ← Digits only, no spaces or +
+  phone:     '+250 795 263 269',           // ← Replace with real number
+  whatsapp:  '250795263269',               // ← Digits only, no spaces or +
   email:     'info@prostructure.rw',       // ← Replace with real email
-  address:   'KG XXX St, Kigali, Rwanda',  // ← Replace with real address
+  address:   'KG 21 St, Kigali, Rwanda',  // ← Replace with real address
   city:      'Kigali',
   country:   'Rwanda',
 }

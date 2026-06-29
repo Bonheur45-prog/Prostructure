@@ -5,10 +5,9 @@
 // ============================================
 
 import Navbar from '@components/layout/Navbar/Navbar'
+import Footer from '@components/layout/Footer/Footer'
 import styles from './Layout.module.css'
-
-// Footer will be imported once built:
-// import Footer from '@components/layout/Footer/Footer'
+ 
 
 export default function Layout({ children }) {
   return (
@@ -17,7 +16,7 @@ export default function Layout({ children }) {
       <main className={styles.main}>
         {children}
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   )
 }

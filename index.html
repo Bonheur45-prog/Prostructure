@@ -1,10 +1,137 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>prostructure</title>
+
+    <!-- ═══════════════════════════════════════
+         PRIMARY SEO META TAGS
+         ═══════════════════════════════════════ -->
+    <title>Prostructure Engineering Ltd | Construction & Engineering Solutions in Rwanda</title>
+    <meta
+      name="description"
+      content="Prostructure Engineering Ltd is a professional construction and engineering company in Kigali, Rwanda. We deliver construction, electrical, plumbing, waterproofing, maintenance and supply services built on quality, precision and trust."
+    />
+    <meta name="keywords" content="construction company Rwanda, engineering company Kigali, plumbing services Rwanda, electrical installation Rwanda, waterproofing services Rwanda, building maintenance Kigali, construction contractor Rwanda, commercial construction Rwanda, facility maintenance Rwanda, engineering solutions Rwanda" />
+    <meta name="author" content="Prostructure Engineering Ltd" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0A0A0A" />
+
+    <!-- ═══════════════════════════════════════
+         CANONICAL URL
+         Replace with your real domain
+         ═══════════════════════════════════════ -->
+    <link rel="canonical" href="https://www.prostructure.rw/" />
+
+    <!-- ═══════════════════════════════════════
+         OPEN GRAPH — Facebook, LinkedIn, WhatsApp
+         ═══════════════════════════════════════ -->
+    <meta property="og:type"        content="website" />
+    <meta property="og:site_name"   content="Prostructure Engineering Ltd" />
+    <meta property="og:url"         content="https://www.prostructure.rw/" />
+    <meta property="og:title"       content="Prostructure Engineering Ltd | Construction & Engineering Solutions in Rwanda" />
+    <meta property="og:description" content="Professional engineering and construction company in Kigali, Rwanda. Construction, electrical, plumbing, waterproofing, maintenance and supply services built on quality, precision and trust." />
+    <meta property="og:image"       content="https://www.prostructure.rw/og-image.jpg" />
+    <meta property="og:image:width"  content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale"      content="en_RW" />
+
+    <!-- ═══════════════════════════════════════
+         TWITTER / X CARD
+         ═══════════════════════════════════════ -->
+    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:title"       content="Prostructure Engineering Ltd | Construction & Engineering in Rwanda" />
+    <meta name="twitter:description" content="Professional engineering and construction company in Kigali, Rwanda delivering quality, precision and trust on every project." />
+    <meta name="twitter:image"       content="https://www.prostructure.rw/og-image.jpg" />
+
+    <!-- ═══════════════════════════════════════
+         GEO TARGETING — Rwanda / Kigali
+         ═══════════════════════════════════════ -->
+    <meta name="geo.region"      content="RW-01" />
+    <meta name="geo.placename"   content="Kigali, Rwanda" />
+    <meta name="geo.position"    content="-1.9441;30.0619" />
+    <meta name="ICBM"            content="-1.9441, 30.0619" />
+
+    <!-- ═══════════════════════════════════════
+         FAVICON
+         Place favicon files in /public/
+         ═══════════════════════════════════════ -->
+    <link rel="icon"             type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon"             type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180"                href="/apple-touch-icon.png" />
+    <link rel="manifest"                                         href="/site.webmanifest" />
+
+    <!-- ═══════════════════════════════════════
+         FONTS — preconnect for performance
+         ═══════════════════════════════════════ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap"
+    />
+
+    <!-- ═══════════════════════════════════════
+         STRUCTURED DATA — Local Business (JSON-LD)
+         Tells Google exactly what kind of business
+         this is, where it is, and how to contact it
+         ═══════════════════════════════════════ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": "https://www.prostructure.rw/",
+      "name": "Prostructure Engineering Ltd",
+      "description": "Professional engineering and construction company in Kigali, Rwanda delivering construction, electrical, plumbing, waterproofing, maintenance and supply services.",
+      "url": "https://www.prostructure.rw/",
+      "logo": "https://www.prostructure.rw/logo.png",
+      "image": "https://www.prostructure.rw/og-image.jpg",
+      "telephone": "+250XXXXXXXXX",
+      "email": "info@prostructure.rw",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "KG XXX St",
+        "addressLocality": "Kigali",
+        "addressCountry": "RW"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -1.9441,
+        "longitude": 30.0619
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "08:00",
+          "closes": "17:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "09:00",
+          "closes": "13:00"
+        }
+      ],
+      "sameAs": [
+        "https://linkedin.com/company/prostructure",
+        "https://instagram.com/prostructure"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Engineering & Construction Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Construction" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Waterproofing & Humidity Solutions" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Plumbing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Electrical Installation" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Maintenance & Repairing" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Supply Services" } }
+        ]
+      }
+    }
+    </script>
+
   </head>
   <body>
     <div id="root"></div>

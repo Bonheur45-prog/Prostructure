@@ -1,0 +1,229 @@
+/* ============================================
+   PROSTRUCTURE ENGINEERING LTD
+   src/components/layout/Footer/Footer.module.css
+   ============================================ */
+
+/* ── Footer wrapper ───────────────────────── */
+.footer {
+  background-color: var(--color-black);
+  color: rgba(255, 255, 255, 0.65);
+  font-family: var(--font-body);
+}
+
+/* ── Main 4-column grid ───────────────────── */
+.main {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding: 72px var(--space-lg) 64px;
+  display: grid;
+  grid-template-columns: 1.8fr 1fr 1.2fr 1.4fr;
+  gap: var(--space-2xl);
+}
+
+/* ── Column shared ────────────────────────── */
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Col 1: Logo + description + socials ─── */
+.logoWrap {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--space-md);
+  text-decoration: none;
+}
+
+.logoImg {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.description {
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.75;
+  margin: 0 0 var(--space-lg);
+  max-width: 280px;
+}
+
+/* Socials row */
+.socials {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.socialBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition:
+    border-color     var(--transition-fast),
+    background-color var(--transition-fast);
+}
+
+.socialBtn svg {
+  width: 15px;
+  height: 15px;
+  stroke: rgba(255, 255, 255, 0.55);
+  transition: stroke var(--transition-fast);
+}
+
+.socialBtn:hover {
+  border-color: var(--color-gold);
+  background-color: rgba(201, 168, 76, 0.1);
+}
+
+.socialBtn:hover svg {
+  stroke: var(--color-gold);
+}
+
+/* ── Col headings ─────────────────────────── */
+.colHeading {
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-white);
+  margin: 0 0 var(--space-lg);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+}
+
+/* ── Link list (col 2 + 3) ────────────────── */
+.linkList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.linkItem {
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  transition:
+    color        var(--transition-fast),
+    padding-left var(--transition-base);
+  display: inline-block;
+}
+
+.linkItem:hover {
+  color: var(--color-gold);
+  padding-left: 6px;
+}
+
+/* ── Contact list (col 4) ─────────────────── */
+.contactList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.contactItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+}
+
+.contactIcon {
+  width: 16px;
+  height: 16px;
+  color: var(--color-gold);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.contactText {
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.6;
+}
+
+.contactLink {
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  line-height: 1.6;
+  transition: color var(--transition-fast);
+}
+
+.contactLink:hover {
+  color: var(--color-gold);
+}
+
+/* ── Bottom copyright bar ─────────────────── */
+.bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.bottomInner {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding: var(--space-md) var(--space-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.copyright {
+  font-size: var(--text-xs);
+  color: rgba(255, 255, 255, 0.3);
+  letter-spacing: 0.03em;
+}
+
+.builtBy {
+  font-size: var(--text-xs);
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.builtByLink {
+  color: var(--color-gold);
+  text-decoration: none;
+  font-weight: 600;
+  transition: opacity var(--transition-fast);
+}
+
+.builtByLink:hover {
+  opacity: 0.8;
+}
+
+/* ── Responsive ───────────────────────────── */
+@media (max-width: 1024px) {
+  .main {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    padding: 56px var(--space-lg) 48px;
+  }
+}
+
+@media (max-width: 640px) {
+  .main {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    padding: 48px var(--space-sm) 40px;
+  }
+
+  .description {
+    max-width: 100%;
+  }
+
+  .bottomInner {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-xs);
+    padding: var(--space-md) var(--space-sm);
+  }
+}
