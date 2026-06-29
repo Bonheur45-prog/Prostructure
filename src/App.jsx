@@ -13,6 +13,8 @@ import About from '@sections/About/About'
 import Services from '@sections/Services/Services'
 import Projects from '@sections/Projects/Projects'
 import ProjectDetail from '@pages/ProjectDetail/ProjectDetail'
+import WhyUs        from '@sections/WhyUs/WhyUs'
+import WorkingProcess from '@sections/WorkingProcess/WorkingProcess'
 
 // import Process      from '@sections/Process/Process'
 // import WhyUs        from '@sections/WhyUs/WhyUs'
@@ -28,6 +30,8 @@ function HomePage() {
       <About />
       <Services />
       <Projects />
+      <WhyUs />
+      <WorkingProcess />
       {/* Remaining sections added here as built */}
     </>
   )

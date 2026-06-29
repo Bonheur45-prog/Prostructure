@@ -1,0 +1,291 @@
+/* ============================================
+   PROSTRUCTURE ENGINEERING LTD
+   src/sections/WorkingProcess/WorkingProcess.module.css
+   Orbital layout with pulse & rotating rings
+   ============================================ */
+
+/* ── Section ────────────────────────────────── */
+.section {
+  position: relative;
+  background-color: var(--color-black);
+  padding: 50px 0 80px;
+  overflow: hidden;
+}
+
+/* ── Parallax Background ────────────────────── */
+.parallaxClip {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+.parallaxBg {
+  position: absolute;
+  top: -15%;
+  left: 0;
+  width: 100%;
+  height: 130%;
+  background-color: var(--color-black-light);
+  background-image: radial-gradient(circle at 50% 40%, rgba(201, 168, 76, 0.06) 0%, transparent 70%);
+  z-index: 0;
+}
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 1;
+}
+
+/* ── Inner Container ────────────────────────── */
+.inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Header ──────────────────────────────────── */
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 6px;
+}
+.heading {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 900;
+  color: var(--color-white);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin: 0 0 8px;
+}
+.subtext {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.55);
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ── Orbit Container ────────────────────────── */
+.orbitContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 580px;
+}
+
+.orbitWrapper {
+  position: relative;
+  width: 600px;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ── RINGS ───────────────────────────────────── */
+
+/* Ring 3 – Outer dashed (rotating) */
+/* 540px → radius 270. Node circles sit at radius 220 ± 28px (outer edge 248).
+   Gap from dashed inner edge to node outer edge = 270 - 248 = 22px — clearly outside. */
+.ringDashed {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 540px;
+  height: 540px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 2px dashed rgba(201, 168, 76, 0.25);
+  pointer-events: none;
+  animation: spin 50s linear infinite;
+}
+
+@keyframes spin {
+  0%   { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Ring 2 – Middle solid (static, holds nodes) */
+.ringStatic {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 440px;
+  height: 440px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1.5px solid rgba(201, 168, 76, 0.25);
+  pointer-events: none;
+}
+
+/* Ring 1 – Inner pulsing heartbeat */
+.ringPulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 180px;
+  height: 180px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 2px solid var(--color-gold);
+  pointer-events: none;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%   { transform: translate(-50%, -50%) scale(1);    opacity: 0.6; }
+  50%  { transform: translate(-50%, -50%) scale(1.15); opacity: 0; }
+  100% { transform: translate(-50%, -50%) scale(1);    opacity: 0.6; }
+}
+
+/* ── Central Hub ────────────────────────────── */
+/* hub = 120px, ringPulse = 180px → 30px gap each side. Hub always inside pulse ring. */
+.hub {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+  border: 2px solid var(--color-gold);
+  box-shadow: 0 0 60px rgba(201, 168, 76, 0.15), inset 0 0 40px rgba(201, 168, 76, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 10;
+  padding: 12px;
+}
+
+.hubLogo {
+  width: 40px;
+  height: auto;
+  display: block;
+  margin-bottom: 4px;
+  filter: brightness(0) invert(1);
+}
+
+.hubLabel {
+  font-family: var(--font-body);
+  font-size: 9px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  line-height: 1.3;
+}
+
+/* ── Orbiting Nodes ──────────────────────────── */
+.node {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: default;
+  width: 80px;
+  /* transform is set inline: translate(-50%, -28px)
+     X: centres div horizontally on ring point
+     Y: shifts up by half nodeCircle height (56/2=28px) so the circle — not the div — sits on the ring */
+}
+
+.nodeCircle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px solid rgba(201, 168, 76, 0.5);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.node:hover .nodeCircle {
+  border-color: var(--color-gold);
+  background: rgba(201, 168, 76, 0.12);
+  box-shadow: 0 0 30px rgba(201, 168, 76, 0.2);
+  transform: scale(1.08);
+}
+
+.nodeIcon {
+  width: 24px;
+  height: 24px;
+  stroke: var(--color-gold);
+  stroke-width: 1.8;
+  transition: stroke 0.3s ease;
+}
+
+.node:hover .nodeIcon {
+  stroke: #ffffff;
+}
+
+.nodeTitle {
+  margin-top: 8px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.3;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+.node:hover .nodeTitle {
+  color: #ffffff;
+}
+
+/* ── Responsive ──────────────────────────────── */
+
+/*
+  IMPORTANT: We never change ringStatic's pixel size in any breakpoint.
+  ringStatic is always 440px (radius 220px), matching the JS node radius exactly.
+  Scaling is done via transform: scale() on .orbitWrapper so every internal
+  measurement — rings, hub, and JS-calculated node positions — shrinks uniformly.
+*/
+
+/* Tablet – scale the full 600px wrapper down to ~500px visual size */
+@media (max-width: 1024px) {
+  .orbitContainer {
+    min-height: 500px;
+  }
+  .orbitWrapper {
+    /* Keep intrinsic size at 600px so JS radius (220px) stays correct.
+       Scale visually to ~500px: 500 / 600 = 0.833 */
+    transform: scale(0.833);
+    transform-origin: center center;
+  }
+}
+
+/* Mobile – scale the full 600px wrapper down to ~340px visual size */
+@media (max-width: 768px) {
+  .orbitContainer {
+    min-height: 380px;
+  }
+  .orbitWrapper {
+    /* Scale visually to ~340px: 340 / 600 = 0.567 */
+    transform: scale(0.567);
+    transform-origin: center center;
+  }
+}
