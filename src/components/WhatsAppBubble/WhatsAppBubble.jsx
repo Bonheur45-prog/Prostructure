@@ -7,7 +7,7 @@
 // It floats fixed bottom-right on every page.
 //
 // Usage:
-//   import WhatsAppBubble from '@components/WhatsAppBubble/WhatsAppBubble'
+//   import WhatesAppBubble from '@components/WhatsAppBubble/WhatsAppBubble'
 //   <WhatsAppBubble />
 // ============================================
 
