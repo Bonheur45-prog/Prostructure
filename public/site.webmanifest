@@ -1,0 +1,16 @@
+{
+  "name": "Prostructure Engineering Ltd",
+  "short_name": "Prostructure",
+  "description": "Professional engineering and construction services in Kigali, Rwanda.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#0d0d0d",
+  "theme_color": "#c9a84c",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ]
+}

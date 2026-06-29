@@ -1,0 +1,338 @@
+/* ============================================
+   PROSTRUCTURE ENGINEERING LTD
+   src/sections/Contact/ContactSection.module.css
+   Glassmorphism card + gold corner brackets
+   ============================================ */
+
+/* ── Theme tokens ────────────────────────────── */
+.section {
+  --contact-gold:       rgba(201, 168, 76, 1);
+  --contact-gold-20:    rgba(201, 168, 76, 0.20);
+  --contact-gold-10:    rgba(201, 168, 76, 0.10);
+  --contact-gold-50:    rgba(201, 168, 76, 0.50);
+  --contact-white:      rgba(255, 255, 255, 1);
+  --contact-white-55:   rgba(255, 255, 255, 0.55);
+  --contact-white-35:   rgba(255, 255, 255, 0.35);
+  --contact-glass-bg:   rgba(255, 255, 255, 0.03);
+  --contact-glass-blur: 24px;
+  --wa-green:           #25D366;
+  --wa-green-dark:      #1ebe5d;
+  --bracket-size:       44px;
+  --bracket-thickness:  2px;
+
+  position:         relative;
+  background-color: var(--color-black);
+  padding:          80px 0 100px;
+  overflow:         hidden;
+}
+
+/* ── Parallax background ─────────────────────── */
+.parallaxClip {
+  position: absolute;
+  inset:    0;
+  overflow: hidden;
+  z-index:  0;
+}
+.parallaxBg {
+  position:         absolute;
+  top:              -15%;
+  left:             0;
+  width:            100%;
+  height:           130%;
+  background-color: var(--color-black-light);
+  background-image: radial-gradient(
+    circle at 50% 60%,
+    rgba(201, 168, 76, 0.05) 0%,
+    transparent 65%
+  );
+}
+.overlay {
+  position:   absolute;
+  inset:      0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* ── Inner container ─────────────────────────── */
+.inner {
+  position:   relative;
+  z-index:    2;
+  max-width:  860px;
+  margin:     0 auto;
+  padding:    0 24px;
+}
+
+/* ── Glassmorphism card ──────────────────────── */
+.card {
+  position:        relative;
+  background:      var(--contact-glass-bg);
+  backdrop-filter: blur(var(--contact-glass-blur));
+  -webkit-backdrop-filter: blur(var(--contact-glass-blur));
+  border:          1px solid var(--contact-gold-20);
+  border-radius:   24px;
+  padding:         56px 64px;
+  text-align:      center;
+  box-shadow:
+    0 8px 40px rgba(0, 0, 0, 0.5),
+    0 1px 0   rgba(201, 168, 76, 0.08) inset,
+    0 -1px 0  rgba(0, 0, 0, 0.3) inset;
+}
+
+/* ── Gold corner brackets ────────────────────── */
+/* Top-left bracket */
+.cornerTL {
+  position:     absolute;
+  top:          -1px;
+  left:         -1px;
+  width:        var(--bracket-size);
+  height:       var(--bracket-size);
+  border-top:   var(--bracket-thickness) solid var(--contact-gold);
+  border-left:  var(--bracket-thickness) solid var(--contact-gold);
+  border-radius: 24px 0 0 0;
+  pointer-events: none;
+}
+
+/* Bottom-right bracket */
+.cornerBR {
+  position:      absolute;
+  bottom:        -1px;
+  right:         -1px;
+  width:         var(--bracket-size);
+  height:        var(--bracket-size);
+  border-bottom: var(--bracket-thickness) solid var(--contact-gold);
+  border-right:  var(--bracket-thickness) solid var(--contact-gold);
+  border-radius: 0 0 24px 0;
+  pointer-events: none;
+}
+
+/* ── Eyebrow ─────────────────────────────────── */
+.eyebrow {
+  display:        inline-block;
+  font-family:    var(--font-display);
+  font-size:      12px;
+  font-weight:    600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color:          var(--contact-gold);
+  margin-bottom:  12px;
+}
+
+/* ── Heading ─────────────────────────────────── */
+.heading {
+  font-family:    var(--font-display);
+  font-size:      clamp(28px, 4vw, 48px);
+  font-weight:    900;
+  color:          var(--contact-white);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height:    1.1;
+  margin:         0 0 16px;
+}
+
+.accent {
+  color: var(--contact-gold);
+}
+
+/* ── Subtext ─────────────────────────────────── */
+.subtext {
+  font-family:  var(--font-body);
+  font-size:    16px;
+  color:        var(--contact-white-55);
+  max-width:    560px;
+  margin:       0 auto 36px;
+  line-height:  1.75;
+}
+
+/* ── CTA row ─────────────────────────────────── */
+.ctaRow {
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  gap:             16px;
+  flex-wrap:       wrap;
+  margin-bottom:   36px;
+}
+
+/* Primary button — WhatsApp green */
+.btnPrimary {
+  display:         inline-flex;
+  align-items:     center;
+  gap:             10px;
+  padding:         14px 28px;
+  background:      var(--wa-green);
+  color:           #ffffff;
+  font-family:     var(--font-body);
+  font-size:       15px;
+  font-weight:     700;
+  border-radius:   100px;
+  text-decoration: none;
+  border:          2px solid transparent;
+  transition:      background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+  box-shadow:      0 4px 20px rgba(37, 211, 102, 0.3);
+}
+.btnPrimary:hover {
+  background:   var(--wa-green-dark);
+  transform:    translateY(-2px);
+  box-shadow:   0 8px 28px rgba(37, 211, 102, 0.45);
+}
+.btnPrimary:active {
+  transform:  translateY(0);
+}
+
+/* Secondary button — gold outlined */
+.btnSecondary {
+  display:         inline-flex;
+  align-items:     center;
+  gap:             8px;
+  padding:         14px 28px;
+  background:      transparent;
+  color:           var(--contact-gold);
+  font-family:     var(--font-body);
+  font-size:       15px;
+  font-weight:     600;
+  border-radius:   100px;
+  text-decoration: none;
+  border:          2px solid var(--contact-gold-50);
+  transition:      border-color 0.25s ease, background 0.25s ease,
+                   color 0.25s ease, transform 0.2s ease;
+}
+.btnSecondary:hover {
+  border-color: var(--contact-gold);
+  background:   var(--contact-gold-10);
+  color:        var(--contact-white);
+  transform:    translateY(-2px);
+}
+.btnSecondary:active {
+  transform: translateY(0);
+}
+
+/* ── Divider ─────────────────────────────────── */
+.divider {
+  width:        100%;
+  height:       1px;
+  background:   linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--contact-gold-20) 30%,
+    var(--contact-gold-20) 70%,
+    transparent 100%
+  );
+  margin:       0 0 28px;
+}
+
+/* ── Info row ────────────────────────────────── */
+.infoRow {
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  flex-wrap:       wrap;
+  gap:             8px 32px;
+  margin-bottom:   28px;
+}
+
+.infoItem {
+  display:     flex;
+  align-items: center;
+  gap:         8px;
+}
+
+.infoIconWrap {
+  display:     flex;
+  align-items: center;
+  color:       var(--contact-gold);
+  flex-shrink: 0;
+}
+
+.infoLink {
+  font-family:     var(--font-body);
+  font-size:       14px;
+  color:           var(--contact-white-55);
+  text-decoration: none;
+  transition:      color 0.2s ease;
+}
+.infoLink:hover {
+  color: var(--contact-gold);
+}
+
+.infoText {
+  font-family: var(--font-body);
+  font-size:   14px;
+  color:       var(--contact-white-55);
+}
+
+/* ── Social row ──────────────────────────────── */
+.socialRow {
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  gap:             12px;
+}
+
+.socialLabel {
+  font-family:    var(--font-body);
+  font-size:      12px;
+  font-weight:    600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color:          var(--contact-white-35);
+  margin-right:   4px;
+}
+
+.socialLink {
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  width:           38px;
+  height:          38px;
+  border-radius:   50%;
+  border:          1px solid var(--contact-gold-20);
+  color:           var(--contact-white-55);
+  text-decoration: none;
+  transition:      border-color 0.25s ease, color 0.25s ease,
+                   background 0.25s ease, transform 0.2s ease;
+}
+.socialLink:hover {
+  border-color: var(--contact-gold);
+  color:        var(--contact-gold);
+  background:   var(--contact-gold-10);
+  transform:    translateY(-2px);
+}
+
+/* ── Responsive ──────────────────────────────── */
+@media (max-width: 768px) {
+  .card {
+    padding: 40px 28px;
+  }
+  .infoRow {
+    flex-direction: column;
+    gap:            16px;
+  }
+  .ctaRow {
+    flex-direction: column;
+    align-items:    stretch;
+  }
+  .btnPrimary,
+  .btnSecondary {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding:       32px 20px;
+    border-radius: 16px;
+  }
+  .cornerTL,
+  .cornerBR {
+    --bracket-size: 32px;
+  }
+}
+
+/* ── Reduced motion ──────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .btnPrimary,
+  .btnSecondary,
+  .socialLink,
+  .infoLink {
+    transition: none;
+  }
+}
